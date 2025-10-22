@@ -1,0 +1,11 @@
+:root {
+  --main-color-1: #2e1130;
+  --main-color-2: #591b45;
+  --second-color-1: #dcab69;
+  --wheel-size: 300px;
+  --hub-size: 90px;
+  --selector-width: 30px;
+  --selector-height: 30px;
+  --border-color: #d9b470; /* fallback si no tienes variables globales */
+  --hub-shadow: rgba(0, 0, 0, 0.22);
+}

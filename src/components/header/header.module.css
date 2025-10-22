@@ -1,0 +1,7 @@
+.header{
+    inline-size: 100%;
+    block-size: 10%;
+    border: 1px solid var(--main-color-2);
+    border-radius: 20px;
+}
+

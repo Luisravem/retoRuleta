@@ -1,0 +1,12 @@
+.target{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    inline-size: 80% ;
+    block-size: 90%;
+    border-radius: 20px;
+    box-shadow: 2px 2px 20px var(--main-color-2), -2px -2px 20px var(--main-color-2);
+    
+}

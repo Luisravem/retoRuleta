@@ -1,0 +1,42 @@
+.modeContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  inline-size: 100%;
+
+  block-size: 100%;
+}
+.divisionMode {
+  inline-size: 100%;
+  block-size: 100%;
+  align-content: center;
+
+}
+.divisionModeActive {
+  inline-size: 100%;
+  block-size: 100%;
+  align-content: center;
+  border: 1px solid var(--main-color-2);
+  border-radius: 20px;
+background: radial-gradient(var(--main-color-2), var(--main-color-1));
+
+}
+.span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  block-size: 100%;
+  inline-size: 100%;
+  font-weight: 700;
+  font-size: 80%;
+  color: var(--border-color);
+}
+
+.span img {
+  block-size: 70%;
+  inline-size: 30%;
+  min-inline-size: 60px;
+  max-inline-size: 80px;
+}

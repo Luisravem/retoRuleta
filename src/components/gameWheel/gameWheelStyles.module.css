@@ -1,0 +1,133 @@
+/* Contenedor central */
+.containerGameWheel {
+  inline-size: var(--wheel-size);
+  block-size: var(--wheel-size);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Rueda */
+.wheel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+
+  /* borde y fondo neutro (los slices pintan su propio fondo) */
+  border: 5px solid var(--border-color);
+  background: var(--border-color);
+
+  transform-origin: 50% 50%;
+  will-change: transform;
+  touch-action: none;
+}
+
+/* Sombra interior / relieve */
+.wheel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.7),
+    inset -5px -5px 10px rgba(0, 0, 0, 0.22);
+  pointer-events: none;
+  z-index: 50;
+}
+
+/* Hub central decorativo */
+.wheelCenter {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--hub-size);
+  height: var(--hub-size);
+  font-weight: 500;
+  font-size: 22px;
+  border-radius: 50%;
+  color: var(--border-color);
+  z-index: 100;
+  box-shadow: 2px 2px 10px var(--hub-shadow), -2px -2px 10px var(--hub-shadow);
+  background: radial-gradient(var(--main-color-2), var(--main-color-1));
+  border: 4px solid var(--border-color);
+  pointer-events: none;
+}
+
+/* SELECTOR / PUNTERO (triángulo arriba) */
+.containerSelectorPoint {
+  position: absolute;
+  top: calc(-1 * (var(--selector-height) / 3));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  pointer-events: none;
+  filter: drop-shadow(1px 1px 10px black) drop-shadow(6px 6px 25px gold);
+}
+
+.selectorPoint {
+  width: var(--selector-width);
+  height: var(--selector-height);
+  clip-path: polygon(100% 0, 0 0, 50% 100%);
+  background: var(--border-color);
+  transition: transform 0.08s ease;
+  transform-origin: 50% 0%;
+}
+
+.tick {
+  transform: scale(1.1) rotate(-1deg);
+}
+
+/* SLICE / SEGMENT */
+.wheelItem {
+  position: absolute;
+  width: 98%;
+  height: 50%;
+  left: 1%;
+  top: 0;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  transform-origin: 50% 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* no capturar el puntero: click debe ir al .wheel */
+  pointer-events: none;
+}
+
+/* Texto dentro del slice */
+.textWheelItem {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--border-color); /* blanco por defecto para legibilidad */
+  transform-origin: 50% 50%;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Responsive ligero */
+@media (max-width: 420px) {
+  :root {
+    --wheel-size: 260px;
+    --hub-size: 26px;
+    --selector-width: 34px;
+    --selector-height: 26px;
+  }
+  .textWheelItem {
+    font-size: 13px;
+  }
+}
